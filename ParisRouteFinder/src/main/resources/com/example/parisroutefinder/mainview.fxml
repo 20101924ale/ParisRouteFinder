@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="781.0" prefWidth="1200.0" style="-fx-background-color: #292F36;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.parisroutefinder.MainController">
+   <top>
+        <AnchorPane prefHeight="783.0" prefWidth="1200.0" style="-fx-background-color: #ffccec;" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fx:id="imageView" fitHeight="571.0" fitWidth="806.0" layoutX="27.0" layoutY="173.0" onMouseClicked="#addWayPoint" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@map.png" />
+                    </image>
+               <effect>
+                  <InnerShadow height="71.12" radius="39.480000000000004" width="88.8">
+                     <color>
+                        <Color red="0.9605262875556946" green="0.16898147761821747" blue="0.4987918436527252" />
+                     </color>
+                  </InnerShadow>
+               </effect>
+                </ImageView>
+                <Text fill="WHITE" layoutX="81.0" layoutY="75.0" stroke="#d62d84" strokeType="OUTSIDE" strokeWidth="4.0" text="Paris Route Finder" wrappingWidth="705.1799621582031">
+                    <font>
+                        <Font name="Avenir Next Heavy" size="72.0" />
+                    </font>
+               <effect>
+                  <DropShadow offsetX="6.0" offsetY="6.0">
+                     <color>
+                        <Color red="0.6184210777282715" green="0.0629873275756836" blue="0.0629873275756836" opacity="0.30000001192092896" />
+                     </color>
+                  </DropShadow>
+               </effect>
+                </Text>
+            <Pane layoutX="847.0" layoutY="12.0" prefHeight="161.0" prefWidth="335.0" style="-fx-background-color: #e38fc6;">
+               <effect>
+                  <DropShadow offsetX="6.0" offsetY="6.0">
+                     <color>
+                        <Color red="0.21052631735801697" green="0.006822612136602402" blue="0.17318063974380493" opacity="0.41999998688697815" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <children>
+                      <Text fill="WHITE" layoutX="54.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start:">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Text>
+                      <Text fill="WHITE" layoutX="212.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="End:">
+                     <font>
+                        <Font name="System Bold" size="26.0" />
+                     </font>
+                  </Text>
+                      <Button layoutX="271.0" layoutY="108.0" mnemonicParsing="false" onAction="#avoidPointInPaths" style="-fx-background-color: pink; -fx-background-radius: 3;" text="avoid" textFill="WHITE">
+                     <font>
+                        <Font name="Avenir Next Heavy" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+                <ChoiceBox fx:id="startChoiceBox" layoutX="859.0" layoutY="56.0" prefHeight="43.0" prefWidth="136.0" style="-fx-background-color: white; -fx-background-radius: 15;" />
+                <ChoiceBox fx:id="endChoiceBox" layoutX="1018.0" layoutY="56.0" prefHeight="43.0" prefWidth="136.0" style="-fx-background-color: white; -fx-background-radius: 15;" />
+                <Button layoutX="851.0" layoutY="461.0" mnemonicParsing="false" onAction="#generateShortestPathBreadthFS" prefHeight="34.0" prefWidth="316.0" style="-fx-background-radius: 15; -fx-background-color: #eb96cc; -fx-text-fill: white;" text="Breadth-First">
+               <font>
+                  <Font name="Avenir Next Heavy" size="14.0" />
+               </font></Button>
+                <Text fill="WHITE" layoutX="844.0" layoutY="559.0" stroke="#ff68b6" strokeType="OUTSIDE" strokeWidth="4.0" text="Most historical route" textAlignment="CENTER" wrappingWidth="326.4297637939453">
+                    <font>
+                        <Font name="Avenir Next Heavy" size="24.0" />
+                    </font>
+                </Text>
+                <Button layoutX="849.0" layoutY="498.0" mnemonicParsing="false" onAction="#findShortestPathDijkstra" prefHeight="35.0" prefWidth="320.0" style="-fx-background-radius: 15; -fx-background-color: #d660ab; -fx-text-fill: white;" text="Dijkstra's Algo">
+               <font>
+                  <Font name="Avenir Next Heavy" size="14.0" />
+               </font></Button>
+                <Button layoutX="850.0" layoutY="568.0" mnemonicParsing="false" onAction="#generateMostHistoricalRoute" prefHeight="33.0" prefWidth="326.0" style="-fx-background-radius: 15; -fx-background-color: #b83b8a; -fx-text-fill: white;" text="Dijkstra's Algo">
+               <font>
+                  <Font name="Avenir Next Heavy" size="14.0" />
+               </font></Button>
+                <Button layoutX="860.0" layoutY="637.0" mnemonicParsing="false" onAction="#resetMap" prefHeight="94.0" prefWidth="309.0" style="-fx-background-color: white; -fx-text-fill: black; -fx-background-radius: 15;" text="Reset  Map">
+               <effect>
+                  <DropShadow offsetX="6.0" offsetY="6.0">
+                     <color>
+                        <Color opacity="0.31931164860725403" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <font>
+                  <Font size="25.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Button>
+                <Text fill="WHITE" layoutX="858.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                <Button layoutX="1044.0" layoutY="224.0" mnemonicParsing="false" onAction="#generateDepthFSRoutes" prefHeight="29.0" prefWidth="134.0" style="-fx-background-color: #eb96cc; -fx-text-fill: white; -fx-background-radius: 15;" text="DFS" textFill="WHITE">
+               <font>
+                  <Font name="Avenir Next Heavy" size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Button>
+                <ListView fx:id="listViewDepthFS" layoutX="853.0" layoutY="260.0" onMouseClicked="#drawLinesBetweenLandmarkNodes" prefHeight="106.0" prefWidth="326.0" style="-fx-background-radius: 15;" />
+                <Text fill="WHITE" layoutX="861.0" layoutY="214.0" stroke="#d72d82" strokeType="OUTSIDE" strokeWidth="3.0" text="Depth-FS route " wrappingWidth="255.47328186035156">
+                    <font>
+                        <Font name="Avenir Next Heavy" size="26.0" />
+                    </font>
+                </Text>
+                <TextField fx:id="maxNumDepthFSRoutes" layoutX="1090.0" layoutY="379.0" prefHeight="25.0" prefWidth="41.0" />
+                <Text fill="WHITE" layoutX="863.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Avoid:">
+                    <font>
+                        <Font name="System Bold" size="30.0" />
+                    </font>
+                </Text>
+                <ChoiceBox fx:id="avoidPointChoiceBox" layoutX="961.0" layoutY="118.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 15;" />
+                <Button layoutX="150.0" layoutY="105.0" mnemonicParsing="false" onAction="#displayLinksWithLines" prefHeight="50.0" prefWidth="519.0" style="-fx-background-radius: 10; -fx-background-color: #eb96cc; -fx-text-fill: white;" text="DISPLAY ALL LANDMARK CONNECTIONS">
+                    <font>
+                        <Font name="Avenir Next Heavy" size="23.0" />
+                    </font>
+               <effect>
+                  <DropShadow offsetX="6.0" offsetY="6.0">
+                     <color>
+                        <Color red="1.0" green="0.46759259700775146" blue="0.7604166865348816" opacity="0.5799999833106995" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
+                </Button>
+            <Text fill="WHITE" layoutX="834.0" layoutY="439.0" stroke="#d72d82" strokeType="OUTSIDE" strokeWidth="3.0" text="Using Shortest Route" textAlignment="CENTER" wrappingWidth="359.3762969970703">
+               <font>
+                  <Font name="Avenir Next Heavy" size="31.0" />
+               </font>
+            </Text>
+                <Text fill="WHITE" layoutX="870.0" layoutY="396.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Maximum Amount of Routes ">
+                    <font>
+                        <Font name="Avenir Next Heavy" size="13.0" />
+                    </font>
+               <effect>
+                  <Glow />
+               </effect>
+            </Text>
+            <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="-14.0" layoutY="584.0">
+               <image>
+                  <Image url="@catfrench.png" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" layoutX="862.0" layoutY="245.0" stroke="#d72d82" strokeType="OUTSIDE" strokeWidth="2.0" text="Click to view route" wrappingWidth="275.14630126953125">
+               <font>
+                  <Font name="Avenir Next Heavy" size="17.0" />
+               </font>
+            </Text>
+            </children>
+        </AnchorPane>
+   </top>
+</BorderPane>
